@@ -1,4 +1,11 @@
 @extends('app')
+
+@section('title', 'Planes y precios — DentOs Hub')
+
+@section('meta_description', 'Planes de suscripción de DentOs Hub para clínicas dentales. Elige el plan ideal para tu consultorio.')
+
+@section('meta_keywords', 'planes dentales, software dental precios, DentOs Hub suscripción')
+
 @section('header-class')
     header-light
 @endsection

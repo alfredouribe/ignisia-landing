@@ -47,7 +47,7 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide">
-                                <div class="swiper-inner" data-bgimage="url({{ asset('images/slider/1.jpg') }}) center">
+                                <div class="swiper-inner" data-bgimage="url({{ asset('images/slider/1.webp') }}) center">
                                     <div class="sw-overlay op-5"></div>
                                     <div class="gradient-edge-left z-2"></div>
 
@@ -57,7 +57,7 @@
 
                             <!-- Slides -->
                             <div class="swiper-slide">
-                                <div class="swiper-inner" data-bgimage="url({{ asset('images/slider/2.jpg') }}) center">
+                                <div class="swiper-inner" data-bgimage="url({{ asset('images/slider/2.webp') }}) center">
                                     <div class="sw-overlay op-5"></div>
                                     <div class="gradient-edge-left z-2"></div>
                                 </div>
@@ -66,7 +66,7 @@
 
                             <!-- Slides -->
                             <div class="swiper-slide">
-                                <div class="swiper-inner" data-bgimage="url({{ asset('images/slider/3.jpg') }}) center">
+                                <div class="swiper-inner" data-bgimage="url({{ asset('images/slider/3.webp') }}) center">
                                     <div class="sw-overlay op-5"></div>
                                     <div class="gradient-edge-left z-2"></div>
                                 </div>
