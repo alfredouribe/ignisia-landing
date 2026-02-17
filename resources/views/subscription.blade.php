@@ -76,7 +76,7 @@
                                 <li>Agenda básica</li>
 
                             </ul>
-                            <a href="https://admin.dentoshub.com/authentication/sign-up" class="btn-main btn-line w-100">
+                            <a href="https://ignisia-frontend.vercel.app/authentication/sign-in" class="btn-main btn-line text-over-light text-dark w-100">
                                 Empezar Gratis </a>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                                 <li>Recordatorios automáticos</li>
                                 <li>Multiusuario limitado</li>
                             </ul>
-                            <a href="/subscriptions#profesional" class="btn-main w-100"> Elegir Profesional </a>
+                            <a href="https://ignisia-frontend.vercel.app/authentication/sign-in" class="btn-main w-100"> Elegir Profesional </a>
                         </div>
                     </div>
 
@@ -112,7 +112,7 @@
                                 <li>Soporte prioritario</li>
                                 <li>Almacenamiento ampliado</li>
                             </ul>
-                            <a href="/subscriptions#premium" class="btn-main btn-line w-100"> Elegir Premium </a>
+                            <a href="https://ignisia-frontend.vercel.app/authentication/sign-in" class="btn-main btn-line text-dark text-over-light w-100"> Elegir Premium </a>
                         </div>
                     </div>
                 </div>

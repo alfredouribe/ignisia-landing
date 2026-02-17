@@ -110,10 +110,11 @@
                             estructurada y moderna.</p>
 
                         <div class="social-icons mb-sm-30">
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/share/1BxJL7mqHk/?mibextid=wwXIfr"><i class="fa-brands fa-facebook-f"></i></a>
 
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/dentoshub?igsh=MTZ3OGIxZjV6cnVqOQ%3D%3D&utm_source=qr"><i class="fa-brands fa-instagram"></i></a>
+
+                            <a href="https://wa.me/525544992158?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n." target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
                         </div>
                     </div>
@@ -124,9 +125,9 @@
                                     <h5>Plataforma</h5>
                                     <ul>
                                         <li><a href="/">Inicio</a></li>
-                                        <li><a href="services.html">Crea tu cuenta</a></li>
-                                        <li><a href="gallery.html">Membresías</a></li>
-                                        <li><a href="contact.html">Inicia Sesión</a></li>
+                                        <li><a href="https://ignisia-frontend.vercel.app/authentication/sign-up">Crea tu cuenta</a></li>
+                                        <li><a href="/subscriptions">Membresías</a></li>
+                                        <li><a href="https://ignisia-frontend.vercel.app/authentication/sign-in">Inicia Sesión</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -215,11 +216,11 @@
             </p>
 
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/share/1BxJL7mqHk/?mibextid=wwXIfr"><i class="fa-brands fa-facebook-f"></i></a>
 
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.instagram.com/dentoshub?igsh=MTZ3OGIxZjV6cnVqOQ%3D%3D&utm_source=qr"><i class="fa-brands fa-instagram"></i></a>
 
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://wa.me/525544992158?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n." target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </div>

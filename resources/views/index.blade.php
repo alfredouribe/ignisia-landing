@@ -72,8 +72,6 @@
                                 </div>
                             </div>
                             <!-- Slides -->
-
-
                         </div>
 
                     </div>
@@ -90,7 +88,7 @@
                             <i class="fs-60 id-color icon_phone"></i>
                             <div class="ms-3">
                                 <h4 class="mb-0">Necesitas Gestionar tu Clínica?</h4>
-                                <p>Call: +55 5555 5555</p>
+                                <p><a href="tel:+525544992158">Llámanos: +52 55 4499 2158</a></p>
                             </div>
                         </div>
                     </div>
@@ -100,7 +98,7 @@
                             <i class="fs-60 id-color icon_clock"></i>
                             <div class="ms-3">
                                 <h4 class="mb-0">Controla tu Agenda</h4>
-                                <p>365 días /24/7</p>
+                                <p>365 días 24/7</p>
                             </div>
                         </div>
                     </div>
@@ -110,7 +108,7 @@
                             <i class="fs-60 id-color icon_mail"></i>
                             <div class="ms-3">
                                 <h4 class="mb-0">Membresias</h4>
-                                <p>contacto@dentoshub.com</p>
+                                <p><a href="mailto:contacto@dentoshub">contacto@dentoshub.com</a></p>
                             </div>
                         </div>
                     </div>
