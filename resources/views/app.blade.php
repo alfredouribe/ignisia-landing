@@ -27,7 +27,7 @@
 
 <body>
     <div id="wrapper">
-        <a href="#" id="back-to-top"></a>
+        <a href="#" id="back-to-top" style="left: 4px!important;"></a>
 
         <!-- preloader begin -->
         <div id="de-loader"></div>
