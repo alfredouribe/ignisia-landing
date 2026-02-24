@@ -144,7 +144,7 @@
                             <div class="spacer-20"></div>
 
                             <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color"></i>Llámanos</div>
-                            +55 5555 5555
+                            +52 55 4499 2158
 
                             <div class="spacer-20"></div>
 
