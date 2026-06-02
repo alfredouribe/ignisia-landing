@@ -241,6 +241,7 @@
     <script src="{{ asset('js/custom-swiper-1.js') }}"></script>
     <script src="{{ asset('js/contact.js') }}"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeTll0sAAAAAD6PvBT34i2gx2Pqs0blx8MLKvz_"></script>
+    @stack('scripts')
     {{-- <script>
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
             ':35729/livereload.js?LR-verbose&snipver=1&LiveTest=1"></' + 'script>')
