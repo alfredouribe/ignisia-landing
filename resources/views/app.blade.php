@@ -196,8 +196,8 @@
                                 <div class="de-flex-col">
                                     Derechos Reservados 2026 - DentOs Hub</div>
                                 <ul class="menu-simple">
-                                    <li><a href="#">Términos y Condiciones</a></li>
-                                    <li><a href="#">Políticas de Privacidad</a></li>
+                                    <li><a href="https://ignisia-frontend.vercel.app/dentoshub_terminos_condiciones_2026.pdf" target="_blank">Términos y Condiciones</a></li>
+                                    <li><a href="https://ignisia-frontend.vercel.app/dentoshub_politica_privacidad_2026.pdf" target="_blank">Políticas de Privacidad</a></li>
                                 </ul>
                             </div>
                         </div>
