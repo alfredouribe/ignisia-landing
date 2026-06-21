@@ -1,5 +1,88 @@
 @extends('app')
 
+@section('title', 'DentOs Hub — Software de Gestión Dental para Consultorios en México')
+
+@section('meta_description', 'DentOs Hub: software dental todo-en-uno para odontólogos en México. Agenda inteligente, expediente clínico, odontograma digital y recordatorios WhatsApp. Prueba gratis.')
+
+@section('meta_keywords', 'software dental México, gestión consultorio dental, agenda dental online, expediente clínico digital, odontograma digital, software odontológico')
+
+@section('robots', 'index, follow')
+
+@section('canonical', config('app.url'))
+
+@section('og_type', 'website')
+@section('og_title', 'DentOs Hub — Software de Gestión Dental para Consultorios en México')
+@section('og_description', 'Gestión clínica dental todo-en-uno: agenda, expediente, odontograma y WhatsApp integrado. Diseñado para odontólogos que quieren trabajar de forma más organizada.')
+@section('og_image', asset('images/slider/1.webp'))
+@section('og_image_alt', 'DentOs Hub — Software Dental para Odontólogos en México')
+
+@push('schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebSite",
+            "@id": "{{ config('app.url') }}/#website",
+            "url": "{{ config('app.url') }}",
+            "name": "DentOs Hub",
+            "description": "Software de gestión clínica dental para odontólogos en México.",
+            "inLanguage": "es-MX",
+            "publisher": { "@id": "{{ config('app.url') }}/#organization" }
+        },
+        {
+            "@type": "Organization",
+            "@id": "{{ config('app.url') }}/#organization",
+            "name": "DentOs Hub",
+            "url": "{{ config('app.url') }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ asset('images/logo-black.webp') }}"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+52-55-4499-2158",
+                "contactType": "customer support",
+                "email": "contacto@dentoshub.com",
+                "areaServed": "MX",
+                "availableLanguage": "Spanish"
+            },
+            "sameAs": [
+                "https://www.facebook.com/share/1BxJL7mqHk/",
+                "https://www.instagram.com/dentoshub"
+            ]
+        },
+        {
+            "@type": "SoftwareApplication",
+            "name": "DentOs Hub",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web, iOS, Android",
+            "url": "{{ config('app.url') }}",
+            "description": "Software de gestión clínica dental todo-en-uno para odontólogos en México. Incluye agenda, expediente clínico, odontograma digital y WhatsApp integrado.",
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "MXN",
+                "price": "0",
+                "priceValidUntil": "{{ now()->addYear()->format('Y-m-d') }}",
+                "availability": "https://schema.org/InStock"
+            },
+            "inLanguage": "es-MX",
+            "author": { "@id": "{{ config('app.url') }}/#organization" }
+        },
+        {
+            "@type": "WebPage",
+            "@id": "{{ config('app.url') }}/#webpage",
+            "url": "{{ config('app.url') }}",
+            "name": "DentOs Hub — Software de Gestión Dental para Consultorios en México",
+            "isPartOf": { "@id": "{{ config('app.url') }}/#website" },
+            "about": { "@id": "{{ config('app.url') }}/#organization" },
+            "inLanguage": "es-MX"
+        }
+    ]
+}
+</script>
+@endpush
+
 @section('content')
     <!-- content begin -->
     <div class="no-bottom no-top" id="content">

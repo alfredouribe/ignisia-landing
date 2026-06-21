@@ -2,19 +2,40 @@
 <html lang="es">
 
 <head>
-    <title>@yield('title', 'DentOs Hub — Gestión clínica dental, en un solo lugar.')</title>
-
-    <link rel="icon" href="{{ asset('images/icon.webp') }}" type="image/webp" sizes="16x16">
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="@yield('meta_description', 'DentOs Hub — Gestión clínica dental, en un solo lugar.')">
+    <title>@yield('title', 'DentOs Hub — Gestión clínica dental, en un solo lugar.')</title>
 
-    <meta name="keywords" content="@yield('meta_keywords', 'software dental, gestión clínica dental, DentOs Hub')">
+    <!-- Primary SEO -->
+    <meta name="description" content="@yield('meta_description', 'DentOs Hub — Software de gestión clínica dental para odontólogos. Agenda, expediente clínico, odontograma digital y WhatsApp integrado.')">
+    <meta name="keywords"    content="@yield('meta_keywords', 'software dental, gestión clínica dental, agenda dental, expediente clínico, odontograma digital, DentOs Hub')">
+    <meta name="author"      content="DentOs Hub">
+    <meta name="robots"      content="@yield('robots', 'index, follow')">
+    <link rel="canonical"    href="@yield('canonical', url()->current())">
 
-    <meta name="author" content="@yield('meta_author', 'DentOs Hub')">
+    <!-- Open Graph -->
+    <meta property="og:site_name"   content="DentOs Hub">
+    <meta property="og:locale"      content="es_MX">
+    <meta property="og:type"        content="@yield('og_type', 'website')">
+    <meta property="og:title"       content="@yield('og_title', 'DentOs Hub — Gestión clínica dental, en un solo lugar.')">
+    <meta property="og:description" content="@yield('og_description', 'Software de gestión clínica dental para odontólogos. Agenda, expediente clínico, odontograma digital y WhatsApp integrado.')">
+    <meta property="og:url"         content="@yield('canonical', url()->current())">
+    <meta property="og:image"       content="@yield('og_image', asset('images/slider/1.webp'))">
+    <meta property="og:image:width"  content="2000">
+    <meta property="og:image:height" content="1333">
+    <meta property="og:image:alt"    content="@yield('og_image_alt', 'DentOs Hub — Software Dental')">
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="@yield('og_title', 'DentOs Hub — Gestión clínica dental, en un solo lugar.')">
+    <meta name="twitter:description" content="@yield('og_description', 'Software de gestión clínica dental para odontólogos. Agenda, expediente clínico, odontograma digital y WhatsApp integrado.')">
+    <meta name="twitter:image"       content="@yield('og_image', asset('images/slider/1.webp'))">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/icon.webp') }}" type="image/webp" sizes="16x16">
+
+    <!-- CSRF -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- CSS -->
@@ -23,6 +44,9 @@
     <link href="{{ asset('css/swiper.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link id="colors" href="{{ asset('css/colors/scheme-01.css') }}" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    @stack('schema')
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TSHD8SJLF"></script>

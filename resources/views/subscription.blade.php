@@ -1,10 +1,20 @@
 @extends('app')
 
-@section('title', 'Planes y precios — DentOs Hub')
+@section('title', 'Planes y Precios | DentOs Hub — Software Dental para Odontólogos')
 
-@section('meta_description', 'Planes de suscripción de DentOs Hub para clínicas dentales. Elige el plan ideal para tu consultorio.')
+@section('meta_description', 'Elige el plan ideal para tu consultorio dental. DentOs Hub ofrece membresías desde $0 MXN con agenda, historial clínico, odontograma digital y mensajería WhatsApp integrada.')
 
-@section('meta_keywords', 'planes dentales, software dental precios, DentOs Hub suscripción')
+@section('meta_keywords', 'planes software dental, precios software odontológico, membresías DentOs Hub, suscripción clínica dental, software dental México')
+
+@section('robots', 'index, follow')
+
+@section('canonical', config('app.url') . '/subscriptions')
+
+@section('og_type', 'website')
+@section('og_title', 'Planes y Precios — DentOs Hub | Software Dental')
+@section('og_description', 'Elige el plan ideal para tu consultorio dental. Desde gratis hasta Pro con WhatsApp integrado, odontograma digital y agenda completa. Sin costos ocultos.')
+@section('og_image', asset('images/slider/2.webp'))
+@section('og_image_alt', 'Planes y precios de DentOs Hub — Software Dental')
 
 @section('header-class')
     header-light
@@ -258,6 +268,75 @@
     </div>
 @endsection
 
+@push('schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": "{{ config('app.url') }}/subscriptions#webpage",
+            "url": "{{ config('app.url') }}/subscriptions",
+            "name": "Planes y Precios — DentOs Hub | Software Dental para Odontólogos",
+            "description": "Elige el plan ideal para tu consultorio dental. DentOs Hub ofrece membresías desde $0 MXN con agenda, historial clínico, odontograma digital y WhatsApp.",
+            "inLanguage": "es-MX",
+            "isPartOf": { "@id": "{{ config('app.url') }}/#website" },
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Inicio",      "item": "{{ config('app.url') }}" },
+                    { "@type": "ListItem", "position": 2, "name": "Membresías",  "item": "{{ config('app.url') }}/subscriptions" }
+                ]
+            }
+        },
+        {
+            "@type": "ItemList",
+            "name": "Planes de suscripción DentOs Hub",
+            "description": "Planes de software dental para consultorios y clínicas odontológicas en México.",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Product",
+                        "name": "Plan Gratis — DentOs Hub",
+                        "description": "Acceso básico a la plataforma dental. Registro de pacientes y agenda básica.",
+                        "brand": { "@type": "Brand", "name": "DentOs Hub" },
+                        "offers": {
+                            "@type": "Offer",
+                            "priceCurrency": "MXN",
+                            "price": "0",
+                            "priceValidUntil": "{{ now()->addYear()->format('Y-m-d') }}",
+                            "availability": "https://schema.org/InStock",
+                            "url": "{{ config('app.url') }}/subscriptions"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "Product",
+                        "name": "Plan Pro — DentOs Hub",
+                        "description": "Software dental completo: agenda, historial clínico, odontograma digital y WhatsApp integrado para consultorios en crecimiento.",
+                        "brand": { "@type": "Brand", "name": "DentOs Hub" },
+                        "offers": {
+                            "@type": "Offer",
+                            "priceCurrency": "MXN",
+                            "price": "650",
+                            "priceValidUntil": "{{ now()->addYear()->format('Y-m-d') }}",
+                            "availability": "https://schema.org/InStock",
+                            "url": "{{ config('app.url') }}/subscriptions"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+</script>
+@endpush
+
 @push('scripts')
 <script>
 (function () {
@@ -336,29 +415,42 @@
 
     function planFeatures(plan) {
         var li = [];
-        if (plan.max_patients !== undefined && plan.max_patients !== null) {
-            li.push(plan.max_patients + ' pacientes');
-        } else if (plan.max_patients === null) {
-            li.push('Pacientes ilimitados');
+
+        // Base: always present
+        li.push('Registro de pacientes');
+
+        // Agenda
+        if (plan.has_appointments) {
+            li.push('Agenda y citas completa');
+        } else {
+            li.push('Agenda básica');
         }
-        if (plan.max_clinics !== undefined && plan.max_clinics !== null) {
-            li.push(plan.max_clinics + ' clínica' + (plan.max_clinics !== 1 ? 's' : ''));
-        } else if (plan.max_clinics === null) {
-            li.push('Clínicas ilimitadas');
-        }
-        if (plan.max_users !== undefined && plan.max_users !== null) {
-            li.push(plan.max_users + ' usuario' + (plan.max_users !== 1 ? 's' : ''));
-        } else if (plan.max_users === null) {
-            li.push('Usuarios ilimitados');
-        }
-        if (plan.has_appointments)    li.push('Agenda y citas');
+
+        // Clinical features
         if (plan.has_odontogram)      li.push('Odontograma digital');
         if (plan.has_medical_history) li.push('Historial clínico');
-        if (plan.has_reports)         li.push('Reportes y métricas');
-        if (plan.has_export)          li.push('Exportación de datos');
+
+        // WhatsApp + reminders
         if (plan.has_whatsapp) {
             li.push('WhatsApp (' + plan.whatsapp_messages_included + ' msg/mes)');
+            li.push('Recordatorios automáticos');
         }
+
+        // Reports & export
+        if (plan.has_reports) li.push('Reportes y métricas');
+        if (plan.has_export)  li.push('Exportación de datos');
+
+        // Limits
+        if (plan.max_patients !== undefined) {
+            li.push(plan.max_patients === null ? 'Pacientes ilimitados' : 'Hasta ' + plan.max_patients + ' pacientes');
+        }
+        if (plan.max_clinics !== undefined) {
+            li.push(plan.max_clinics === null ? 'Clínicas ilimitadas' : 'Hasta ' + plan.max_clinics + ' clínica' + (plan.max_clinics !== 1 ? 's' : ''));
+        }
+        if (plan.max_users !== undefined) {
+            li.push(plan.max_users === null ? 'Usuarios ilimitados' : 'Hasta ' + plan.max_users + ' usuario' + (plan.max_users !== 1 ? 's' : ''));
+        }
+
         return li.map(function (x) { return '<li>' + x + '</li>'; }).join('');
     }
 
@@ -482,7 +574,7 @@
             '<div class="col-lg-4 col-md-6"><div class="border-gray p-40 h-100 rounded-1 text-center wow fadeInUp" style="border:2px solid var(--primary-color);">' +
             '<div class="mb-2"><span class="badge bg-color text-light">Más Popular</span></div>' +
             '<h4 class="mb-2">Pro</h4><p class="mb-3">Consultorios en crecimiento</p>' +
-            '<ul class="ul-check text-start mb-4"><li>Agenda completa</li><li>Historial clínico</li><li>Odontograma digital</li><li>WhatsApp (200 msg/mes)</li></ul>' +
+            '<ul class="ul-check text-start mb-4"><li>Registro de pacientes</li><li>Agenda y citas completa</li><li>Historial clínico</li><li>Odontograma digital</li><li>WhatsApp (200 msg/mes)</li><li>Recordatorios automáticos</li><li>Usuarios ilimitados</li></ul>' +
             '<a href="https://ignisia-frontend.vercel.app/authentication/sign-in" class="btn-main w-100">Elegir Pro</a>' +
             '</div></div>';
     }
