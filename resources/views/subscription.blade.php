@@ -416,39 +416,40 @@
     function planFeatures(plan) {
         var li = [];
 
-        // Base: always present
-        li.push('Registro de pacientes');
+        // Limits
+        li.push(plan.max_patients === null ? 'Pacientes ilimitados' : 'Hasta ' + plan.max_patients + ' pacientes');
+        li.push(plan.max_clinics  === null ? 'Clínicas ilimitadas'  : 'Hasta ' + plan.max_clinics  + ' clínica'  + (plan.max_clinics  !== 1 ? 's' : ''));
+        li.push(plan.max_users    === null ? 'Usuarios ilimitados'  : 'Hasta ' + plan.max_users    + ' usuario'  + (plan.max_users    !== 1 ? 's' : ''));
 
-        // Agenda
-        if (plan.has_appointments) {
-            li.push('Agenda y citas completa');
-        } else {
-            li.push('Agenda básica');
+        var storageMb = plan.max_storage_mb;
+        if (storageMb) {
+            li.push(storageMb >= 1024
+                ? (storageMb / 1024) + ' GB de almacenamiento'
+                : storageMb + ' MB de almacenamiento');
         }
 
         // Clinical features
-        if (plan.has_odontogram)      li.push('Odontograma digital');
-        if (plan.has_medical_history) li.push('Historial clínico');
+        if (plan.has_clinical_history)  li.push('Historial clínico');
+        if (plan.has_history_types)     li.push('Tipos de historial personalizados');
+        if (plan.has_diagnoses)         li.push('Diagnósticos');
+        if (plan.has_treatments)        li.push('Tratamientos');
+        if (plan.has_consent_letters)   li.push('Cartas de consentimiento');
+        if (plan.has_statements)        li.push('Estados de cuenta');
+        if (plan.has_medical_formats)   li.push('Formatos médicos');
 
-        // WhatsApp + reminders
+        // Team & roles
+        if (plan.has_staff)             li.push('Gestión de personal');
+        if (plan.has_custom_roles)      li.push('Roles personalizados');
+
+        // Patients & appointments
+        if (plan.has_patient_invitation)           li.push('Invitación de pacientes');
+        if (plan.has_appointment_email_creation)   li.push('Email de confirmación de citas');
+        if (plan.has_appointment_email_confirm)    li.push('Recordatorios de cita por email');
+
+        // Notifications & WhatsApp
+        if (plan.has_internal_notifications) li.push('Notificaciones internas');
         if (plan.has_whatsapp) {
             li.push('WhatsApp (' + plan.whatsapp_messages_included + ' msg/mes)');
-            li.push('Recordatorios automáticos');
-        }
-
-        // Reports & export
-        if (plan.has_reports) li.push('Reportes y métricas');
-        if (plan.has_export)  li.push('Exportación de datos');
-
-        // Limits
-        if (plan.max_patients !== undefined) {
-            li.push(plan.max_patients === null ? 'Pacientes ilimitados' : 'Hasta ' + plan.max_patients + ' pacientes');
-        }
-        if (plan.max_clinics !== undefined) {
-            li.push(plan.max_clinics === null ? 'Clínicas ilimitadas' : 'Hasta ' + plan.max_clinics + ' clínica' + (plan.max_clinics !== 1 ? 's' : ''));
-        }
-        if (plan.max_users !== undefined) {
-            li.push(plan.max_users === null ? 'Usuarios ilimitados' : 'Hasta ' + plan.max_users + ' usuario' + (plan.max_users !== 1 ? 's' : ''));
         }
 
         return li.map(function (x) { return '<li>' + x + '</li>'; }).join('');
